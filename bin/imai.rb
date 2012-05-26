@@ -2,6 +2,10 @@
 require "readline"
 
 loop do
-  p TOPLEVEL_BINDING.eval(Readline.readline("＞＞ ", true) || break)
+  begin
+    p TOPLEVEL_BINDING.eval(Readline.readline("＞＞ ", true) || break)
+  rescue => e
+    warn e
+  end
 end
 puts
